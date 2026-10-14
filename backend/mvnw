@@ -1,0 +1,3 @@
+#!/bin/sh
+# Maven wrapper bootstrap placeholder for environments where mvn is installed.
+exec mvn "$@"

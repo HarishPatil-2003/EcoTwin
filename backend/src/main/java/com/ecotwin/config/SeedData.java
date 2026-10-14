@@ -1,0 +1,3 @@
+package com.ecotwin.config;
+import com.ecotwin.model.*;import com.ecotwin.repository.*;import org.springframework.boot.CommandLineRunner;import org.springframework.context.annotation.Bean;import org.springframework.context.annotation.Configuration;import java.time.LocalDate;
+@Configuration public class SeedData {@Bean CommandLineRunner seed(DeviceRepository d,DocumentRepository docs){return args->{if(d.count()==0){d.save(new Device("Galaxy Book 5 AI","Laptop",LocalDate.of(2026,1,13)));d.save(new Device("Galaxy S20 FE","Smartphone",LocalDate.of(2024,6,20)));}if(docs.count()==0){docs.save(new Document("purchase_invoice.pdf","INVOICE"));docs.save(new Document("warranty_card.pdf","WARRANTY"));}};}}

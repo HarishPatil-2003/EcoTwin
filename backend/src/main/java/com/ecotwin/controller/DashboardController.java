@@ -1,0 +1,3 @@
+package com.ecotwin.controller;
+import com.ecotwin.repository.DeviceRepository;import org.springframework.web.bind.annotation.*;import java.util.*;
+@RestController @RequestMapping("/api/dashboard") @CrossOrigin(origins="*") public class DashboardController {private final DeviceRepository repo; public DashboardController(DeviceRepository repo){this.repo=repo;} @GetMapping public Map<String,Object> dashboard(){var d=repo.findAll();var a=d.isEmpty()?Map.of("ets",0,"eli",0,"ess",0):Map.of("ets",d.stream().mapToInt(x->x.getEts()).max().orElse(0),"eli",d.stream().mapToInt(x->x.getEli()).max().orElse(0),"ess",d.stream().mapToInt(x->x.getEss()).max().orElse(0));return Map.of("deviceCount",d.size(),"scores",a,"decision","MAINTAIN","warrantyDays",142,"eWasteAvoidedKg",1.8);}}

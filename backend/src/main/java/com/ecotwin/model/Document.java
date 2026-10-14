@@ -1,0 +1,3 @@
+package com.ecotwin.model;
+import jakarta.persistence.*;import java.time.Instant;
+@Entity @Table(name="documents") public class Document {@Id @GeneratedValue(strategy=GenerationType.UUID) private String id; private String filename; private String type; private String status="VERIFIED"; private Instant createdAt=Instant.now(); public Document(){} public Document(String filename,String type){this.filename=filename;this.type=type;} public String getId(){return id;} public String getFilename(){return filename;} public String getType(){return type;} public String getStatus(){return status;} public Instant getCreatedAt(){return createdAt;}}

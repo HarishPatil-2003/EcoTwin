@@ -1,0 +1,30 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ecotwin
+      POSTGRES_USER: ecotwin
+      POSTGRES_PASSWORD: ecotwin
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+    ports: ["5432:5432"]
+    healthcheck:
+      test: ["CMD-SHELL","pg_isready -U ecotwin -d ecotwin"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  backend:
+    build: ./backend
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/ecotwin
+      DB_USER: ecotwin
+      DB_PASSWORD: ecotwin
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports: ["8080:8080"]
+  frontend:
+    build: ./frontend
+    depends_on: [backend]
+    ports: ["5173:80"]
+volumes:
+  pgdata:

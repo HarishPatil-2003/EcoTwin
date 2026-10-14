@@ -1,0 +1,3 @@
+package com.ecotwin.controller;
+import com.ecotwin.model.Document;import com.ecotwin.repository.DocumentRepository;import org.springframework.web.bind.annotation.*;import java.util.*;
+@RestController @RequestMapping("/api/documents") @CrossOrigin(origins="*") public class DocumentController {private final DocumentRepository repo;public DocumentController(DocumentRepository repo){this.repo=repo;}@GetMapping public List<Document> all(){return repo.findAll();}@PostMapping public Document create(@RequestBody Map<String,String> body){return repo.save(new Document(body.getOrDefault("filename","document.pdf"),body.getOrDefault("type","INVOICE")));}}

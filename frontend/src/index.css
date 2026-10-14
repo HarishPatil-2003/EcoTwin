@@ -1,0 +1,4 @@
+@import "tailwindcss";
+:root{font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:#102238;background:#edf2f8;font-synthesis:none}
+*{box-sizing:border-box}body{margin:0;min-width:320px;background:radial-gradient(circle at 0 0,#dce7ff,transparent 35%),radial-gradient(circle at 100% 10%,#d9f7ec,transparent 32%),#edf2f8}.glass{background:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.82);backdrop-filter:blur(22px);box-shadow:18px 18px 38px rgba(70,91,120,.15),-12px -12px 28px rgba(255,255,255,.82)}.neo{background:#edf2f8;box-shadow:10px 10px 22px rgba(93,113,143,.16),-10px -10px 22px rgba(255,255,255,.92)}.inset{box-shadow:inset 5px 5px 12px rgba(93,113,143,.13),inset -5px -5px 12px rgba(255,255,255,.9)}
+.dark body{background:#101827;color:#e9f0f8}.dark .glass{background:rgba(25,35,50,.72);border-color:rgba(255,255,255,.08);box-shadow:18px 18px 38px rgba(0,0,0,.25),-8px -8px 24px rgba(56,75,100,.15)}
